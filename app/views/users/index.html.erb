@@ -1,0 +1,50 @@
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Avatar</th>
+    <th>VK</th>
+    <th>Twitter</th>
+    <th>Facebook</th>
+    <th>Last online</th>
+    <% if current_user&.privileged %>
+    <th>Control</th>
+    <% end %>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.username %></td>
+      <td><%= image_tag user.img_url, alt: user.username %></td>
+      <td>
+        <% if user.vkontakte %>
+          <%= link_to 'vk.com', user.vkontakte %>
+        <% else %>
+          <%=link_to 'Add', '/auth/vkontakte' %>
+        <% end %>
+      </td>
+      <td>
+        <% if user.twitter %>
+            <%= link_to 'twitter.com', user.twitter %>
+        <% else %>
+            <%=link_to 'Add', '/auth/twitter' %>
+        <% end %>
+      </td>
+      <td>
+        <% if user.facebook %>
+            <%= link_to 'facebook.com', user.facebook %>
+        <% else %>
+            <%=link_to 'Add', '/auth/facebook' %>
+        <% end %>
+      </td>
+      <td><%= user.last_activity %></td>
+      <% if current_user&.privileged %>
+        <td>
+          <% if user.banned %>
+              <span class="glyphicon glyphicon-erase"><%= link_to 'Unban', unban_path(user.id), method: :post %></span>
+          <% else %>
+              <span class="glyphicon glyphicon-ban-circle"><%= link_to 'Ban', ban_path(user.id), method: :post %></span>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
