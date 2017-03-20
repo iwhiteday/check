@@ -25,12 +25,24 @@
   font-size: 1.8rem;
 }
 
-.ico {
-  width: 75px;
+.navbar-header, .navbar-nav li {
   height: 75px;
 }
 
+.navbar-brand, .nav li a{
+  height: 75px;
+  line-height: 75px;
+  padding: 0;
+  margin: 0 15px;
+  text-align: center;
+}
+
+.ico {
+  width: 65px;
+  height: 65px;
+}
+
 .ico img {
-  width: 100%;
-  height: 100%;
+  width: 65px;
+  height: 65px;
 }

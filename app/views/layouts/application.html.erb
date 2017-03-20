@@ -9,25 +9,25 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
-        <%= link_to 'Check', root_path, class: 'navbar-brand' %>
+        <%= link_to 'Home', root_path, class: 'navbar-brand' %>
       </div>
       <div id="navbar">
         <ul class="nav navbar-nav pull-right">
           <% if current_user %>
-            <li><%= image_tag current_user.img_url, alt: current_user.username, class: 'avatar' %></li>
+            <li><%= image_tag current_user.img_url, alt: current_user.username, class: 'ico' %></li>
             <li><%= link_to 'Logout', logout_path, method: :delete %></li>
           <% else %>
             <li>
-              <%= link_to image_tag("http://icon-icons.com/icons2/838/PNG/512/circle-twitter_icon-icons.com_66835.png", alt: 'twitter'), '/auth/twitter', class: 'ico' %>
+              <%= link_to image_tag("twitter.png", alt: 'twitter'), '/auth/twitter', class: 'ico' %>
             </li>
             <li>
-              <%= link_to image_tag("https://cdn.iconscout.com/public/images/icon/free/png-256/vk-social-media-30e7c557bc2ab7f2-256x256.png", alt: 'vkontakte'), '/auth/vkontakte', class: 'ico' %>
+              <%= link_to image_tag("vk.png", alt: 'vkontakte'), '/auth/vkontakte', class: 'ico' %>
             </li>
             <li>
-              <%= link_to image_tag("http://www.freeiconspng.com/uploads/facebook-transparent-pics-18.png", alt: 'facebook'), '/auth/facebook', class: 'ico' %>
+              <%= link_to image_tag("facebook.png", alt: 'facebook'), '/auth/facebook', class: 'ico' %>
             </li>
           <% end %>
         </ul>
